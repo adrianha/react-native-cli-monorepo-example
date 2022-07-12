@@ -1,0 +1,19 @@
+{
+  "name": "@rnws/root",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/react",
+      "**/react-native",
+      "**/react-native/**",
+      "**/react-native-codegen",
+      "**/react-native-dev-menu"
+    ]
+  }
+}

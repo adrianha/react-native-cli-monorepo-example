@@ -1,0 +1,17 @@
+{
+  "name": "@rnws/util",
+  "main": "index.js",
+  "private": true,
+  "version": "0.0.1",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "react": "18.0.0",
+    "react-native": "0.69.1"
+  },
+  "dependencies": {
+    "@react-native-community/datetimepicker": "^6.2.0"
+  }
+}
