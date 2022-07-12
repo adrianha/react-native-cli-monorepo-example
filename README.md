@@ -21,4 +21,4 @@
 ## What to Expect:
 
 1. `@react-native-community/datetimepicker` should be listed as dependencies when you run `npx react-native config` in `packages/mobile` directory. `@react-native-community/datetimepicker` is defined as dependency in [packages/util/package.json](packages/util/package.json#L15)
-2. DatePicker should be displayed when you press `Open DatePicker` button in app
+2. DatePicker should be displayed when you press `Show DatePicker` button in app
