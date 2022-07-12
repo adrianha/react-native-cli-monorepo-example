@@ -104,6 +104,27 @@ const baseModulePath = resolvePath(__dirname, 'node_modules'),
   // resolution of modules in external roots
   extraNodeModules = buildModuleResolutionMap();
 
+const blacklistModules = ['react', 'react-native'];
+const blockList = [
+  new RegExp(PATH.join(__dirname, 'android/.*')),
+  new RegExp(PATH.join(__dirname, 'ios/.*')),
+];
+blacklistModules.forEach(blacklistModule => {
+  const blacklistModulePath = resolvePath(
+    resolvePath(__dirname, '../util'),
+    'node_modules',
+    blacklistModule,
+  );
+  if (blacklistModulePath) {
+    blockList.push(
+      new RegExp(
+        blacklistModulePath.replace(/[-[\]{}()*+!<=:?.\/\\^$|#\s,]/g, '\\$&') +
+          '/.*',
+      ),
+    );
+  }
+});
+
 // workaround for enabling symlink
 module.exports = {
   transformer: {
@@ -117,6 +138,7 @@ module.exports = {
   resolver: {
     assetExts: defaultAssetExts.filter(assetExt => assetExt !== 'json'),
     extraNodeModules,
+    blockList,
   },
   watchFolders: [
     PATH.join(__dirname),

@@ -9,16 +9,14 @@
 import React from 'react';
 import {
   Button,
-  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
-import {log, openDatePicker, warn} from '@rnws/util';
+import {log, warn, DatePicker} from '@rnws/util';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -53,12 +51,7 @@ const App = () => {
             }}
           />
           <View style={{height: 8}} />
-          <Button
-            title="Open DatePicker"
-            onPress={() => {
-              openDatePicker();
-            }}
-          />
+          <DatePicker />
         </View>
       </ScrollView>
     </SafeAreaView>
